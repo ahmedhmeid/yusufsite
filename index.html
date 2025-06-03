@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Richmond Hall Navigator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Richmond Hall</h1>
+    <p>Select your name to find your room and directions.</p>
+
+    <select id="nameSelect">
+      <option value="">-- Select Your Name --</option>
+      <option value="neelam">Neelam</option>
+      <option value="nadia">Nadia</option>
+      <option value="safina">Safina</option>
+      <option value="siara">Siara</option>
+      <option value="bushra">Bushra</option>
+      <option value="nabil">Nabil</option>
+      <option value="jamil">Jamil</option>
+      <option value="shafqat">Shafqat</option>
+      <option value="abdul">Abdul</option>
+      <option value="saqib">Saqib</option>
+      <option value="atif">Atif</option>
+      <option value="ahmed">Ahmed</option>
+      <option value="yusuf">Yusuf</option>
+      <option value="ayoub">Ayoub</option>
+      <option value="yahya">Yahya</option>
+      <option value="inaiya">Inaiya</option>
+      <option value="alisha">Alisha</option>
+    </select>
+
+    <br /><br />
+    <button onclick="findRoom()">Find My Room</button>
+
+    <div id="output" class="output"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
