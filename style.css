@@ -10,6 +10,10 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f0f4f8;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure full screen height */
 }
 
 /* Navbar styles */
@@ -20,6 +24,9 @@ body {
   background-color: #ffffff;
   padding: 15px;
   border-bottom: 2px solid #ddd;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .nav-link {
@@ -47,62 +54,115 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full height of the viewport */
   flex-direction: column;
+  width: 100%;
+  height: 100%; /* Full height of the viewport */
+  text-align: center;
 }
 
-/* Container for the dropdown and button */
-.select-container {
+/* Container for the welcome content */
+.container {
   background-color: #ffffff;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  text-align: center;
   width: 100%;
   max-width: 600px;
+  text-align: center;
 }
 
-/* Heading styles */
 h1 {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: #2c3e50;
+  font-size: 2em;
 }
 
 p {
   margin-bottom: 20px;
   color: #555;
+  font-size: 1.2em;
 }
 
-/* Styling for select and button */
-select,
-button {
-  padding: 10px 15px;
-  font-size: 16px;
-  border-radius: 5px;
+/* Navbar fix to ensure it's always at the top */
+body {
+  position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  p {
+    font-size: 1.1em;
+  }
+}
+
+/* Modern styled select dropdown */
+select {
+  appearance: none; /* Remove default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #ffffff;
   border: 1px solid #ccc;
-  margin-top: 10px;
-}
-
-/* Button styling */
-button {
-  background-color: #3498db;
-  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  color: #2c3e50;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   cursor: pointer;
-  border: none;
-  transition: background-color 0.3s;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='16' viewBox='0 0 20 20' width='16' xmlns='http://www.w3.org/2000/svg'><polygon points='0,0 20,0 10,10'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
 }
 
+/* On focus */
+select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Optional wrapper to control layout */
+.select-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #3498db;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Hover effect */
 button:hover {
   background-color: #2980b9;
 }
 
-/* Output section */
-.output {
-  margin-top: 30px;
-  font-size: 18px;
-  color: #34495e;
-  text-align: left;
-  background-color: #ecf0f1;
-  padding: 15px;
-  border-radius: 8px;
+/* Focus style for accessibility */
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.4);
+}
+
+/* Optional: active click effect */
+button:active {
+  transform: scale(0.98);
 }
