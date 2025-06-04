@@ -1,25 +1,68 @@
+/* Reset default margin, padding and box-sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Body styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f4f8;
   padding: 20px;
 }
 
-.container {
-  max-width: 600px;
-  margin: 50px auto;
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-bottom: 2px solid #ddd;
+}
+
+.nav-link {
+  padding: 10px 20px;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #3498db;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+.nav-link.active {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Main content container */
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+  flex-direction: column;
+}
+
+/* Container for the dropdown and button */
+.select-container {
   background-color: #ffffff;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
+  width: 100%;
+  max-width: 600px;
 }
 
+/* Heading styles */
 h1 {
   margin-bottom: 10px;
   color: #2c3e50;
@@ -30,6 +73,7 @@ p {
   color: #555;
 }
 
+/* Styling for select and button */
 select,
 button {
   padding: 10px 15px;
@@ -39,6 +83,7 @@ button {
   margin-top: 10px;
 }
 
+/* Button styling */
 button {
   background-color: #3498db;
   color: white;
@@ -51,6 +96,7 @@ button:hover {
   background-color: #2980b9;
 }
 
+/* Output section */
 .output {
   margin-top: 30px;
   font-size: 18px;

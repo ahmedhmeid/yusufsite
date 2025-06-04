@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Details</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <a href="indoor-navigation.html" class="nav-link">Indoor Navigation</a>
+      <a href="outdoor-navigation.html" class="nav-link">Outdoor Navigation</a>
+      <a href="index.html" class="nav-link">Back to Home</a>
+    </nav>
+
+    <!-- Main content -->
+    <div class="main-content">
+      <div class="select-container">
+        <select id="nameSelect">
+          <option value="">-- Select Your Preference --</option>
+          <option value="apple-maps">Apple Maps</option>
+          <option value="google-maps">Google Maps</option>
+          <option value="waze">Waze</option>
+        </select>
+        <button onclick="navigate()" class="navigate-button">Navigate</button>
+      </div>
+    </div>
+
+    <script>
+      function navigate() {
+        // Get the selected option from the dropdown
+        const selectedMap = document.getElementById("nameSelect").value;
+
+        // The address you want to navigate to
+        const destination =
+          "Richmond Hall Saint Asaph Chester Street, Denbighshire";
+        const encodedDestination = encodeURIComponent(destination);
+
+        // Detect platform: check user agent to identify device
+        const isAndroid = /android/i.test(navigator.userAgent);
+        const isIOS = /iphone|ipod|ipad/i.test(navigator.userAgent);
+
+        if (selectedMap === "apple-maps") {
+          // Apple Maps: Open directly on iOS or fallback to web if on Android
+          if (isIOS) {
+            window.location.href = `maps://?q=${encodedDestination}`;
+
+            setTimeout(function () {
+              window.location.href = `http://maps.apple.com/?q=${encodedDestination}`;
+            }, 1000); // 1-second delay to check if the app opens
+          } else {
+            window.location.href = `http://maps.apple.com/?q=${encodedDestination}`; // fallback for Android
+          }
+        } else if (selectedMap === "google-maps") {
+          // Google Maps: Open directly on both iOS and Android
+          if (isAndroid) {
+            window.location.href = `comgooglemaps://?q=${encodedDestination}`;
+
+            setTimeout(function () {
+              window.location.href = `https://www.google.com/maps?q=${encodedDestination}`;
+            }, 1000); // 1-second delay to check if the app opens
+          } else if (isIOS) {
+            window.location.href = `comgooglemaps://?q=${encodedDestination}`;
+
+            setTimeout(function () {
+              window.location.href = `https://www.google.com/maps?q=${encodedDestination}`;
+            }, 1000); // 1-second delay to check if the app opens
+          } else {
+            window.location.href = `https://www.google.com/maps?q=${encodedDestination}`; // fallback for other devices
+          }
+        } else if (selectedMap === "waze") {
+          // Waze: Open directly on iOS and Android
+          if (isAndroid || isIOS) {
+            window.location.href = `waze://?q=${encodedDestination}`;
+
+            setTimeout(function () {
+              window.location.href = `https://www.waze.com/ul?q=${encodedDestination}`;
+            }, 1000); // 1-second delay to check if the app opens
+          } else {
+            window.location.href = `https://www.waze.com/ul?q=${encodedDestination}`; // fallback for other devices
+          }
+        } else {
+          alert("Please select a map application first!");
+        }
+      }
+    </script>
+  </body>
+</html>
